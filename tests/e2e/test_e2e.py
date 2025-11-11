@@ -43,6 +43,7 @@ def test_calculator_add(page, fastapi_server):
     
     # Use an assertion to check that the text within the result div (with id 'result') is exactly "Result: 15".
     # This verifies that the addition operation was performed correctly and the result is displayed as expected.
+    page.wait_for_selector('#result')
     assert page.inner_text('#result') == 'Result: 15'
 
 @pytest.mark.e2e
@@ -65,6 +66,8 @@ def test_calculator_divide_by_zero(page, fastapi_server):
     page.fill('#b', '0')
     
     # Click the button that has the exact text "Divide". This triggers the division operation.
+    
+    page.locator('button:text("Divide")').wait_for()
     page.click('button:text("Divide")')
     
     # Use an assertion to check that the text within the result div (with id 'result') is exactly
