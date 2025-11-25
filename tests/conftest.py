@@ -51,11 +51,11 @@ def create_fake_user() -> Dict[str, str]:
         A dict containing user fields with fake data.
     """
     return {
-        "first_name": fake.first_name(),
-        "last_name": fake.last_name(),
+        # "first_name": fake.first_name(),
+        # "last_name": fake.last_name(),
         "email": fake.unique.email(),  # Ensure uniqueness where necessary
         "username": fake.unique.user_name(),
-        "password": fake.password(length=12)
+        # "password": fake.password(length=12)
     }
 
 @contextmanager

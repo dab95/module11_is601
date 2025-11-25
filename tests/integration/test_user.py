@@ -64,11 +64,11 @@ def test_session_handling(db_session):
     assert initial_count == 0, f"Expected 0 users before test, found {initial_count}"
     
     user1 = User(
-        first_name="Test",
-        last_name="User",
+        # first_name="Test",
+        # last_name="User",
         email="test1@example.com",
         username="testuser1",
-        password="password123"
+        # password="password123"
     )
     db_session.add(user1)
     db_session.commit()
@@ -80,11 +80,11 @@ def test_session_handling(db_session):
     
     try:
         user2 = User(
-            first_name="Test",
-            last_name="User",
+            # first_name="Test",
+            # last_name="User",
             email="test1@example.com",  # Duplicate
             username="testuser2",
-            password="password456"
+            # password="password456"
         )
         db_session.add(user2)
         db_session.commit()
@@ -98,11 +98,11 @@ def test_session_handling(db_session):
     logger.info(f"Found user1 after rollback: {found_user1.email}")
     
     user3 = User(
-        first_name="Test",
-        last_name="User",
+        # first_name="Test",
+        # last_name="User",
         email="test3@example.com",
         username="testuser3",
-        password="password789"
+        # password="password789"
     )
     db_session.add(user3)
     db_session.commit()
@@ -294,11 +294,11 @@ def test_user_persistence_after_constraint(db_session):
     - Confirm the original user still exists
     """
     initial_user_data = {
-        "first_name": "First",
-        "last_name": "User",
+        # "first_name": "First",
+        # "last_name": "User",
         "email": "first@example.com",
         "username": "firstuser",
-        "password": "password123"
+        # "password": "password123"
     }
     initial_user = User(**initial_user_data)
     db_session.add(initial_user)
@@ -307,11 +307,11 @@ def test_user_persistence_after_constraint(db_session):
     
     try:
         duplicate_user = User(
-            first_name="Second",
-            last_name="User",
+            # first_name="Second",
+            # last_name="User",
             email="first@example.com",  # Duplicate
             username="seconduser",
-            password="password456"
+            # password="password456"
         )
         db_session.add(duplicate_user)
         db_session.commit()
