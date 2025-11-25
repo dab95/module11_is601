@@ -13,7 +13,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: fastapi_db
+          POSTGRES_DB: calculator_db
         ports:
           - 5432:5432
         options: >-
